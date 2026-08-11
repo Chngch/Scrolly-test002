@@ -2768,7 +2768,6 @@
   });
   addEventListener("scroll", scheduleUpdate, { passive: true });
   addEventListener("resize", scheduleUpdate);
-  window.visualViewport?.addEventListener?.("resize", scheduleUpdate);
   reducedMotion.addEventListener?.("change", scheduleUpdate);
   if ("ResizeObserver" in window) {
     const cardResizeObserver = new ResizeObserver(scheduleUpdate);

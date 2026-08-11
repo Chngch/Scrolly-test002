@@ -203,7 +203,7 @@ h1 { max-width: 14ch; font-size: clamp(3.5rem, 9vw, 8rem); }
   align-self: start;
   width: 100%;
   height: 100vh;
-  height: 100dvh;
+  height: 100lvh;
   overflow: hidden;
   background: var(--story-bg);
   background: color-mix(in srgb, var(--story-fg) 8%, var(--story-bg));
@@ -436,7 +436,7 @@ h1 { max-width: 14ch; font-size: clamp(3.5rem, 9vw, 8rem); }
   position: relative;
   z-index: 2;
   margin-top: -100vh;
-  margin-top: -100dvh;
+  margin-top: -100lvh;
 }
 .story-scrolly__step {
   --scrolly-step-edge: 8vh;
@@ -619,7 +619,7 @@ h1 { max-width: 14ch; font-size: clamp(3.5rem, 9vw, 8rem); }
   top: 0;
   width: 100%;
   height: 100vh;
-  height: 100dvh;
+  height: 100lvh;
   overflow: hidden;
 }
 .story-scroll-sequence__visual-motion {
