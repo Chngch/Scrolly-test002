@@ -193,8 +193,19 @@ h1 { max-width: 14ch; font-size: clamp(3.5rem, 9vw, 8rem); }
   position: relative;
   display: block;
   width: 100%;
+  overflow-anchor: none;
   background: var(--story-bg);
   background: color-mix(in srgb, var(--story-bg) 94%, var(--story-fg));
+}
+.story-narrative-viewport-probe {
+  position: fixed;
+  inset: 0 auto auto 0;
+  width: 0;
+  height: 100vh;
+  height: 100svh;
+  visibility: hidden;
+  pointer-events: none;
+  contain: strict;
 }
 .story-scrolly__media {
   position: sticky;
@@ -435,6 +446,7 @@ h1 { max-width: 14ch; font-size: clamp(3.5rem, 9vw, 8rem); }
 .story-scrolly__steps {
   position: relative;
   z-index: 2;
+  overflow-anchor: none;
   margin-top: -100vh;
   margin-top: -100lvh;
 }
@@ -451,6 +463,7 @@ h1 { max-width: 14ch; font-size: clamp(3.5rem, 9vw, 8rem); }
   opacity: .38;
   transition: opacity .28s ease;
   position: relative;
+  overflow-anchor: none;
 }
 .story-scrolly__step:not(:first-child) {
   min-height: calc(100vh + var(--scrolly-handoff-extra, 0px));

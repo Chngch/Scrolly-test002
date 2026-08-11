@@ -215,6 +215,17 @@
 ) {
   return cardHeight > Math.max(0, viewportHeight - edgePadding * 2);
 };
+  const resolveNarrativeViewportHeight = function resolveNarrativeViewportHeight(
+  viewportHeight,
+  stableViewportHeight
+) {
+  const liveHeight = Number(viewportHeight);
+  const stableHeight = Number(stableViewportHeight);
+  if (Number.isFinite(stableHeight) && stableHeight > 0) {
+    return stableHeight;
+  }
+  return Number.isFinite(liveHeight) && liveHeight > 0 ? liveHeight : 1;
+};
   const syncScrollyHandoffLayout = function syncScrollyHandoffLayout(
   steps,
   cards,
@@ -2301,6 +2312,15 @@
   const scrollSequenceSections = Array.from(
     document.querySelectorAll("[data-scroll-sequence-section]")
   );
+  const narrativeViewportProbe = document.createElement("div");
+  narrativeViewportProbe.className = "story-narrative-viewport-probe";
+  narrativeViewportProbe.setAttribute("aria-hidden", "true");
+  document.body.append(narrativeViewportProbe);
+  const getNarrativeViewportHeight = () =>
+    resolveNarrativeViewportHeight(
+      window.innerHeight,
+      narrativeViewportProbe.getBoundingClientRect().height
+    );
   panZoomSections.forEach((section) => {
     section.querySelectorAll("[data-pan-zoom-step]").forEach((step) => {
       [
@@ -2318,6 +2338,8 @@
   const resolveActiveStep = (section, selector) => {
     const steps = Array.from(section.querySelectorAll(selector));
     if (!steps.length) return null;
+    const viewportHeight = getNarrativeViewportHeight();
+    const viewportWidth = window.innerWidth;
     const cards = steps.map((step) =>
       step.querySelector(
         "[data-scrolly-card-group], .story-scrolly__card"
@@ -2326,7 +2348,7 @@
     const edgePaddings = steps.map(
       (step) =>
         Number.parseFloat(getComputedStyle(step).paddingBottom) ||
-        window.innerHeight * .08
+        viewportHeight * .08
     );
     steps.forEach((step, index) => {
       const card = cards[index];
@@ -2341,7 +2363,7 @@
           cardElements.some((candidate) =>
             isOversizedScrollyCard(
               candidate.getBoundingClientRect().height,
-              window.innerHeight,
+              viewportHeight,
               edgePaddings[index]
             )
           )
@@ -2371,8 +2393,8 @@
     const cardRects = syncScrollyHandoffLayout(
       steps,
       cards,
-      window.innerHeight,
-      window.innerWidth,
+      viewportHeight,
+      viewportWidth,
       transitionTiming,
       transitionHoldDistanceVh,
       transitionMotionDistanceVh,
@@ -2380,8 +2402,8 @@
     );
     const scrollState = resolveSceneScrollState(
       cardRects,
-      window.innerHeight,
-      window.innerWidth,
+      viewportHeight,
+      viewportWidth,
       transitionHoldDistanceVh,
       transitionMotionDistanceVh,
       stepTransitions,
