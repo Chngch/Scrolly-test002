@@ -5,7 +5,7 @@
   "slug": "untitled-visual-story",
   "description": "A story created with Scrollstudio.",
   "createdAt": "2026-08-10T18:56:32.618Z",
-  "updatedAt": "2026-08-11T08:03:15.262Z",
+  "updatedAt": "2026-08-11T08:50:45.393Z",
   "theme": {
     "background": "#f3efe7",
     "foreground": "#191816",
@@ -1004,89 +1004,6 @@
             }
           ],
           "assetId": "f682e7c4-1c6e-496d-b2a9-1cf57c45e12e"
-        },
-        {
-          "id": "f39d9792-8a75-4c60-ba8a-9d90874d6dd3",
-          "entryTransition": {
-            "type": "fade",
-            "durationMs": 400
-          },
-          "svgLayerPivots": {},
-          "steps": [
-            {
-              "id": "7f750003-2684-4588-9e32-31bba4af9cab",
-              "cardGapVh": 100,
-              "camera": {
-                "xPercent": 50,
-                "yPercent": 50,
-                "zoom": 1
-              },
-              "mobileCamera": {
-                "xPercent": 50,
-                "yPercent": 50,
-                "zoom": 1
-              },
-              "desktopTimeSeconds": 0,
-              "mobileTimeSeconds": 0,
-              "transition": {
-                "type": "pan-zoom",
-                "timing": "automatic",
-                "durationMs": 900,
-                "triggerDistanceVh": 0,
-                "holdDistanceVh": 100,
-                "motionDistanceVh": 100
-              },
-              "svgLayerStates": {},
-              "annotations": [],
-              "cards": [
-                {
-                  "id": "d2840c26-cdc6-4350-9cab-6382a0c75c90",
-                  "style": {
-                    "backgroundColor": "#ffffff",
-                    "backgroundOpacity": 0.92,
-                    "borderColor": "#000000",
-                    "borderOpacity": 0,
-                    "borderWidth": 0
-                  },
-                  "blocks": [
-                    {
-                      "id": "45742929-d4cb-452c-945e-248cf3ba6989",
-                      "type": "text",
-                      "textBox": {
-                        "content": {
-                          "type": "doc",
-                          "content": [
-                            {
-                              "type": "paragraph"
-                            }
-                          ]
-                        },
-                        "style": {
-                          "blockType": "p",
-                          "alignment": "left",
-                          "fontFamily": "theme-body",
-                          "fontSize": 20,
-                          "backgroundColor": "#ffffff",
-                          "backgroundOpacity": 0,
-                          "borderColor": "#000000",
-                          "borderOpacity": 0,
-                          "borderWidth": 0
-                        }
-                      }
-                    }
-                  ],
-                  "desktopPlacement": {
-                    "xPercent": 70,
-                    "widthPercent": 52
-                  },
-                  "mobilePlacement": {
-                    "xPercent": 50,
-                    "widthPercent": 88
-                  }
-                }
-              ]
-            }
-          ]
         }
       ]
     }
